@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Contact Form</title>
+    <style>
+        body{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #
+    };
+    </style>
+</head>
+<body>
+    <h1>Contact Us</h1>
+    <form id="contactForm">
+        <label>Name: <input type="text" name="name" required></label><br><br>
+        <label>Email: <input type="email" name="email" required></label><br><br>
+        <label>Message:<br><textarea name="message" rows="4" cols="50" required></textarea></label><br><br>
+        <button type="submit">Submit</button>
+    </form>
+    <script>
+        document.getElementById("contactForm").addEventListener("submit", function(e) {
+            e.preventDefault();
+            const data = new FormData(e.target);
+            const formData = Object.fromEntries(data.entries());
+            alert("Submitted Data:\n" + JSON.stringify(formData, null, 2));
+            e.target.reset();
+        });
+    </script>
+</body>
+</html>
